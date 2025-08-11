@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapil Kumar - Full-Stack Developer Resume</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.301.0/dist/umd/lucide.js"></script>
+    <style>
+        /* Use a font similar to Apple's San Francisco, Inter is a great choice */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 300ms ease, color 300ms ease;
+            scroll-behavior: smooth;
+        }
+
+        /* Define smooth background gradients for a premium feel */
+        .theme-background-dark {
+            background: radial-gradient(at top left, rgba(20, 20, 20, 0.8), rgba(0, 0, 0, 0.9)),
+                        linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(15, 15, 15, 0.9));
+            color: #E5E7EB; /* text-gray-200 */
+        }
+
+        .theme-background-light {
+            background: radial-gradient(at bottom right, rgba(250, 250, 250, 0.8), rgba(240, 240, 240, 0.9)),
+                        linear-gradient(135deg, rgba(245, 245, 245, 0.9), rgba(255, 255, 255, 0.9));
+            color: #1F2937; /* text-gray-800 */
+        }
+        
+        /* CSS to hide buttons and controls when printing */
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="theme-background-light text-gray-900 p-4 transition-colors">
+
+    <!-- Top Navigation Bar -->
+    <nav class="no-print fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/70 dark:bg-zinc-900/70 shadow-lg border-b border-zinc-200 dark:border-zinc-800">
+        <div class="container mx-auto max-w-6xl flex justify-between items-center p-4">
+            <!-- Logo/Name on the left -->
+            <div class="flex items-center space-x-2">
+                <div class="p-2 bg-indigo-600 text-white rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="12" x2="12" y1="2" y2="22"/></svg>
+                </div>
+                <span class="text-lg font-bold text-gray-900 dark:text-gray-100">Kapil Kumar</span>
+            </div>
+
+            <!-- Navigation Links in the center -->
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#about-me" class="text-gray-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a></li>
+                <li><a href="#experience" class="text-gray-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a></li>
+                <li><a href="#skills" class="text-gray-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a></li>
+                <li><a href="#projects" class="text-gray-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a></li>
+                <li><a href="#education" class="text-gray-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Education</a></li>
+            </ul>
+
+            <!-- Buttons on the right -->
+            <div class="flex items-center space-x-4">
+                <!-- Download CV button -->
+                <button id="download-cv-btn" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300 shadow-md flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><path d="M10 13H8"/><path d="M16 13h-2"/><path d="M16 17h-6"/></svg>
+                    <span>Download CV</span>
+                </button>
+                
+                <!-- Dark/Light mode toggle button -->
+                <button id="theme-toggle" class="p-3 rounded-full text-gray-600 hover:text-gray-900 bg-gray-200 hover:bg-gray-300 transition-colors duration-300 shadow-md dark:text-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700" aria-label="Toggle dark mode">
+                    <!-- Sun icon for light mode -->
+                    <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun dark:hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M6.34 17.66l-1.41 1.41"/><path d="M19.07 4.93l-1.41 1.41"/></svg>
+                    <!-- Moon icon for dark mode -->
+                    <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon hidden dark:block"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Added padding-top to body to prevent content from being hidden behind the fixed nav bar -->
+    <div class="pt-24 container mx-auto p-4 lg:p-8 max-w-6xl">
+        <!-- New Profile Card Header Section -->
+        <header class="relative p-6 sm:p-8 mb-6 sm:mb-10 rounded-3xl overflow-hidden shadow-lg border border-zinc-300/50 dark:border-zinc-700/50">
+            <!-- Background gradient -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900 to-indigo-800 dark:from-blue-950 dark:to-indigo-900"></div>
+            <!-- Main content container with backdrop-filter for a subtle effect -->
+            <div class="relative z-10 flex flex-col md:flex-row items-center md:items-start text-white text-center md:text-left">
+                <!-- Profile Picture Section -->
+                <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-cyan-400 to-indigo-600 dark:from-cyan-500 dark:to-indigo-700 flex-shrink-0 flex items-center justify-center p-1.5 shadow-xl border-4 border-white dark:border-zinc-200 mb-6 md:mb-0 md:mr-8">
+                    <!-- Replaced image with initials -->
+                    <div class="w-full h-full rounded-full flex items-center justify-center bg-gray-600 text-white font-bold text-3xl md:text-4xl">
+                        KK
+                    </div>
+                </div>
+                <!-- Text Content Section -->
+                <div class="flex-grow">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">Kapil Kumar</h1>
+                    <p class="text-lg sm:text-xl font-semibold mt-1 text-cyan-200 dark:text-cyan-300">Full-Stack Developer</p>
+                    <!-- Added certification below the main title -->
+                    <p class="text-sm sm:text-base font-medium mt-1 text-gray-200 dark:text-gray-300 opacity-80">Oracle Certified Developer</p>
+                    <p class="mt-4 sm:mt-6 text-sm sm:text-base text-gray-200 dark:text-gray-300 max-w-2xl mx-auto md:mx-0">
+                        Passionate full-stack developer with 8+ years of experience building scalable web applications and leading development teams. Specialized in modern frameworks and cloud technologies.
+                    </p>
+                    <!-- Contact and Socials -->
+                    <div class="mt-6 flex flex-col items-center md:items-start space-y-4">
+                        <!-- Contact Info -->
+                        <div class="flex flex-wrap justify-center md:justify-start gap-x-6 gap-y-2 text-sm sm:text-base text-gray-200">
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail mr-2 text-cyan-300"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                kapilkumarhalewale@email.com
+                            </span>
+
+                            <span class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin mr-2 text-cyan-300"><path d="M12 1.5l-8.5 8.5a5 5 0 0 0 0 7.07l1.43 1.43a5 5 0 0 0 7.07 0L12 15l1.5-1.5a5 5 0 0 0 7.07 0l1.43-1.43a5 5 0 0 0 0-7.07L12 1.5z"/><path d="M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg>
+                                Bangalore, India
+                            </span>
+                        </div>
+                        <!-- Socials -->
+                        <div class="flex space-x-4">
+                            <a href="https://linkedin.com/in/kapilkumar" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors" aria-label="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                            </a>
+                            <a href="https://github.com/kapilkumar" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors" aria-label="GitHub">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                            </a>
+                            <a href="#" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors" aria-label="Portfolio">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Left Column for About, Skills, Education -->
+            <div class="lg:col-span-1 space-y-6 md:space-y-8">
+                <!-- About Me Section -->
+                <section id="about-me" class="card p-6 sm:p-8 rounded-3xl bg-white/80 shadow-lg backdrop-blur-md border border-zinc-300/50 dark:bg-zinc-800/60 dark:shadow-2xl dark:border-zinc-700/50">
+                    <h2 class="flex items-center text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-indigo-600 dark:text-indigo-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-laptop mr-2"><path d="M2 16V4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-4"/><path d="M19 16H5a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2z"/></svg>
+                        About Me
+                    </h2>
+                    <p class="text-sm sm:text-base text-gray-700 dark:text-zinc-300 leading-relaxed">
+                        A highly skilled and results-oriented **Full-Stack Engineer** with over 8 years of experience in designing, developing, and deploying robust web applications. Proficient in modern front-end and back-end technologies, with a strong focus on creating scalable and maintainable codebases. Passionate about solving complex problems and building innovative solutions.
+                    </p>
+                </section>
+
+                <!-- Skills Section -->
+                <section id="skills" class="card p-6 sm:p-8 rounded-3xl bg-white/80 shadow-lg backdrop-blur-md border border-zinc-300/50 dark:bg-zinc-800/60 dark:shadow-2xl dark:border-zinc-700/50">
+                    <h2 class="flex items-center text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-indigo-600 dark:text-indigo-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code mr-2"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+                        Skills
+                    </h2>
+                    <div class="space-y-4 sm:space-y-6">
+                        <div>
+                            <h3 class="font-bold text-base sm:text-lg mb-2 text-gray-700 dark:text-zinc-300">Languages</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-indigo-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-indigo-600 transition-colors">Java</span>
+                                <span class="bg-indigo-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-indigo-600 transition-colors">JavaScript</span>
+                                <span class="bg-indigo-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-indigo-600 transition-colors">TypeScript</span>
+                                <span class="bg-indigo-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-indigo-600 transition-colors">Python</span>
+                                <span class="bg-indigo-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-indigo-600 transition-colors">SQL</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base sm:text-lg mb-2 text-gray-700 dark:text-zinc-300">Frameworks & Libraries</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-emerald-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-emerald-600 transition-colors">Spring</span>
+                                <span class="bg-emerald-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-emerald-600 transition-colors">Angular</span>
+                                <span class="bg-emerald-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-emerald-600 transition-colors">Angular Material</span>
+                                <span class="bg-emerald-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-emerald-600 transition-colors">Bootstrap</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base sm:text-lg mb-2 text-gray-700 dark:text-zinc-300">Tools & Platforms</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-fuchsia-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-fuchsia-600 transition-colors">Git</span>
+                                <span class="bg-fuchsia-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-fuchsia-600 transition-colors">Jenkins</span>
+                                <span class="bg-fuchsia-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-fuchsia-600 transition-colors">AWS</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base sm:text-lg mb-2 text-gray-700 dark:text-zinc-300">AI Tools</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-fuchsia-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-fuchsia-600 transition-colors">Notebook LLM</span>
+                                <span class="bg-fuchsia-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-fuchsia-600 transition-colors">Cursor</span>
+                                <span class="bg-fuchsia-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-fuchsia-600 transition-colors">Bolt AI</span>
+                                <span class="bg-fuchsia-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-fuchsia-600 transition-colors">Gemini</span>
+                                <span class="bg-fuchsia-500 text-white text-xs sm:text-sm px-2 sm:px-3 py-1 rounded-full hover:bg-fuchsia-600 transition-colors">Github Copilot</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- Education Section -->
+                <section id="education" class="card p-6 sm:p-8 rounded-3xl bg-white/80 shadow-lg backdrop-blur-md border border-zinc-300/50 dark:bg-zinc-800/60 dark:shadow-2xl dark:border-zinc-700/50">
+                    <h2 class="flex items-center text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-indigo-600 dark:text-indigo-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-graduation-cap mr-2"><path d="M22 10V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v4"/><path d="m12 10 5.25-2.5"/><path d="M20 10l-8 4-8-4 8-4 8 4Z"/><path d="M6 12v6a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6"/><path d="M12 22V10"/></svg>
+                        Education
+                    </h2>
+                    <div>
+                        <h3 class="font-bold text-base sm:text-xl text-gray-900 dark:text-gray-100">Bachelor of engineering in computer science and engineering</h3>
+                        <p class="text-indigo-600 dark:text-indigo-400 text-sm sm:text-lg">Visvesvaraya Technological University, Belagavi</p>
+                        <p class="text-xs sm:text-sm text-gray-600 dark:text-zinc-400">Graduated: Jun 2013</p>
+                    </div>
+                </section>
+            </div>
+            
+            <!-- Right Column for Experience & Projects -->
+            <div class="lg:col-span-2 space-y-6 md:space-y-8">
+                <!-- Experience Section -->
+                <section id="experience" class="card p-6 sm:p-8 rounded-3xl bg-white/80 shadow-lg backdrop-blur-md border border-zinc-300/50 dark:bg-zinc-800/60 dark:shadow-2xl dark:border-zinc-700/50">
+                    <h2 class="flex items-center text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-indigo-600 dark:text-indigo-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M12 12h-2"/></svg>
+                        Experience
+                    </h2>
+                    <div class="space-y-6 sm:space-y-8">
+                        <div>
+                            <div class="flex flex-wrap justify-between items-center mb-1">
+                                <h3 class="font-bold text-base sm:text-xl text-gray-900 dark:text-gray-100">Senior Specialist Engineer</h3>
+                                <span class="text-sm sm:text-base text-gray-600 dark:text-zinc-400">May 2023 - Present</span>
+                            </div>
+                            <p class="text-indigo-600 dark:text-indigo-400 text-sm sm:text-lg mb-2">LTIMindtree Inc</p>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-zinc-300 text-sm sm:text-base">
+                                <li>Developed and maintained full-stack web applications using **Angular** and **Spring Boot**, improving performance by 20%.</li>
+                                <li>Led a team of 4 engineers in the successful delivery of a major product feature, from design to deployment.</li>
+                                <li>Implemented CI/CD pipelines with **Jenkins** and **AWS** to automate build and deployment processes.</li>
+                                <li>Mentored junior developers and conducted code reviews to ensure high-quality code standards.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap justify-between items-center mb-1">
+                                <h3 class="font-bold text-base sm:text-xl text-gray-900 dark:text-gray-100">Senior Software Developer</h3>
+                                <span class="text-sm sm:text-base text-gray-600 dark:text-zinc-400">May 2022 - May 2023</span>
+                            </div>
+                            <p class="text-indigo-600 dark:text-indigo-400 text-sm sm:text-lg mb-2">Innovative Systems</p>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-zinc-300 text-sm sm:text-base">
+                                <li>Contributed to the development of a large-scale e-commerce platform using **React** and **Node.js**.</li>
+                                <li>Optimized database queries and API endpoints, reducing response times by 30%.</li>
+                                <li>Collaborated with the design team to implement responsive and user-friendly interfaces.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section id="projects" class="card p-6 sm:p-8 rounded-3xl bg-white/80 shadow-lg backdrop-blur-md border border-zinc-300/50 dark:bg-zinc-800/60 dark:shadow-2xl dark:border-zinc-700/50">
+                    <h2 class="flex items-center text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-indigo-600 dark:text-indigo-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layers mr-2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.5-9.21 4.74a1 1 0 0 1-.79 0L2 17.5"/><path d="m22 12.5-9.21 4.74a1 1 0 0 1-.79 0L2 12.5"/></svg>
+                        Projects
+                    </h2>
+                    <div class="space-y-6 sm:space-y-8">
+                        <div>
+                            <h3 class="font-bold text-base sm:text-xl text-gray-900 dark:text-gray-100">Project I: eKYC - City Bank India</h3>
+                            <p class="text-gray-700 dark:text-zinc-300 mt-1 text-sm sm:text-base">A full-stack application built with React, Node.js, and WebSockets. The application features real-time messaging, user authentication, and a responsive design that provides a seamless experience across devices.</p>
+                            <div class="flex space-x-4 mt-2">
+                                <a href="https://github.com/kapilkumar/project-x" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-400 transition-colors flex items-center text-sm sm:text-base dark:text-indigo-400 dark:hover:text-indigo-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github mr-1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-base sm:text-xl text-gray-900 dark:text-gray-100">Project II: SCB India</h3>
+                            <p class="text-gray-700 dark:text-zinc-300 mt-1 text-sm sm:text-base">A web application for users to manage and share recipes. Utilizes Python (Django) on the back end and a clean HTML/CSS interface on the front end. Developed with a focus on intuitive user experience and efficient data retrieval.</p>
+                            <div class="flex space-x-4 mt-2">
+                                <a href="https://github.com/kapilkumar/project-y" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-400 transition-colors flex items-center text-sm sm:text-base dark:text-indigo-400 dark:hover:text-indigo-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github mr-1"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="no-print fixed bottom-0 left-0 w-full z-50 backdrop-blur-md bg-white/70 dark:bg-zinc-900/70 shadow-lg border-t border-zinc-200 dark:border-zinc-800">
+        <div class="container mx-auto max-w-6xl flex flex-col md:flex-row justify-between items-center p-4">
+            <!-- Copyright Text -->
+            <p class="text-sm text-gray-600 dark:text-zinc-400 mb-2 md:mb-0">
+                &copy; 2025 Kapil Kumar. All Rights Reserved.
+            </p>
+            <!-- Social Media Icons -->
+            <div class="flex space-x-4">
+                <a href="https://linkedin.com/in/kapilkumar" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full text-gray-600 hover:text-gray-900 bg-gray-200 hover:bg-gray-300 transition-colors duration-300 dark:text-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="https://github.com/kapilkumar" target="_blank" rel="noopener noreferrer" class="p-2 rounded-full text-gray-600 hover:text-gray-900 bg-gray-200 hover:bg-gray-300 transition-colors duration-300 dark:text-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                </a>
+                <a href="#" class="p-2 rounded-full text-gray-600 hover:text-gray-900 bg-gray-200 hover:bg-gray-300 transition-colors duration-300 dark:text-zinc-400 dark:bg-zinc-800 dark:hover:bg-zinc-700" aria-label="Portfolio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const body = document.body;
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const downloadCvBtn = document.getElementById('download-cv-btn');
+            const cards = document.querySelectorAll('.card');
+
+            // Function to apply the correct theme classes
+            function applyTheme(isDarkMode) {
+                if (isDarkMode) {
+                    body.classList.add('dark');
+                    body.classList.add('theme-background-dark');
+                    body.classList.remove('theme-background-light');
+                    body.classList.add('text-gray-200');
+                    body.classList.remove('text-gray-900');
+                } else {
+                    body.classList.remove('dark');
+                    body.classList.add('theme-background-light');
+                    body.classList.remove('theme-background-dark');
+                    body.classList.add('text-gray-900');
+                    body.classList.remove('text-gray-200');
+                }
+            }
+            
+            // Dark Mode Toggle Logic
+            themeToggleBtn.addEventListener('click', () => {
+                const isDarkMode = body.classList.toggle('dark');
+                applyTheme(isDarkMode);
+                // Persist the theme preference to local storage
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            });
+
+            // Check for saved theme preference on page load
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                applyTheme(true);
+            } else {
+                applyTheme(false);
+            }
+
+            // Download CV button logic
+            downloadCvBtn.addEventListener('click', () => {
+                window.print();
+            });
+
+            // Initial animation for cards on page load
+            cards.forEach((card, index) => {
+                card.style.opacity = 0;
+                card.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                    card.style.opacity = 1;
+                    card.style.transform = 'translateY(0)';
+                }, 100 * index);
+            });
+            
+            // Re-initialize lucide icons
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
