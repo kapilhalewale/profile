@@ -1,502 +1,502 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kapil Halewale</title>
+    <title>Kapil Halewale | Full-Stack Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Custom font loading */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f0f2f5;
-            /* Light background */
-            color: #24292e;
-            /* Dark text */
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Basic smooth scroll for navigation */
+        html {
             scroll-behavior: smooth;
         }
 
-        .nav-link:hover {
-            color: #3b82f6;
-            /* Blue hover color */
+        /* Hide the mobile menu when not active */
+        #mobile-menu {
+            transition: max-height 0.3s ease-out;
+            max-height: 0;
+            overflow: hidden;
         }
 
-        .section-title {
-            position: relative;
-            display: inline-block;
-            padding-bottom: 8px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50%;
-            height: 4px;
-            background-color: #3b82f6;
-            /* Blue underline */
-            border-radius: 2px;
-        }
-
-        .text-gradient {
-            background-image: linear-gradient(to right, #4c51bf, #5a67d8);
-            /* Purple to blue gradient */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .shadow-glow {
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
-            /* Lighter blue glow */
-        }
-
-        .nav-shadow {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            display: none;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            background-color: #3b82f6;
-            /* Darker blue */
-            color: #ffffff;
-            /* White icon */
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-        }
-
-        .scroll-to-top:hover {
-            opacity: 1;
-        }
-
-        .card {
-            border: 1px solid #d1d5db;
-            /* Light border */
-        }
-
-        .logo-gradient {
-            background-image: linear-gradient(45deg, #4c51bf, #5a67d8);
-        }
-
-        .about-button-gradient {
-            background-image: linear-gradient(90deg, #4c51bf, #5a67d8);
-        }
-
-        .project-card-link:hover .project-icon {
-            color: #3b82f6;
-            /* Blue on hover */
+        #mobile-menu.open {
+            max-height: 500px; /* Arbitrarily large enough height */
         }
     </style>
 </head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-200 transition-colors duration-300">
 
-<body class="bg-[#f0f2f5] text-[#24292e]">
-
-    <!-- Scroll to Top Button -->
-    <a href="#hero" class="scroll-to-top" id="scrollToTopBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-        </svg>
-    </a>
-    <!-- Top Navigation Bar -->
-    <nav
-        class="no-print fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/70 dark:bg-zinc-900/70 shadow-lg border-b border-zinc-200 dark:border-zinc-800">
-        <div class="container mx-auto max-w-6xl flex justify-between items-center p-4">
-            <!-- Logo/Name on the left -->
-            <div class="flex items-center space-x-2">
-                <div class="p-2 bg-indigo-600 text-white rounded-lg">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-code">
-                        <polyline points="16 18 22 12 16 6" />
-                        <polyline points="8 6 2 12 8 18" />
-                        <line x1="12" x2="12" y1="2" y2="22" />
-                    </svg>
-                </div>
-                <span class="text-lg font-bold text-gray-900 dark:text-gray-100">Kapil Kumar</span>
-            </div>
-
-            <!-- Navigation Links in the center -->
-            <ul class="hidden md:flex space-x-6">
-                <li><a href="#about-me"
-                        class="text-gray-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a>
-                </li>
-                <li><a href="#experience"
-                        class="text-gray-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a>
-                </li>
-                <li><a href="#skills"
-                        class="text-gray-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a>
-                </li>
-                <li><a href="#projects"
-                        class="text-gray-700 dark:text-zinc-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a>
-                </li>
-            </ul>
-
-            <!-- Buttons on the right -->
-            <div class="flex items-center space-x-4">
-                <!-- Download CV button -->
-                <button id="download-cv-btn"
-                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-full transition-colors duration-300 shadow-md flex items-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="lucide lucide-file-text">
-                        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
-                        <polyline points="14 2 14 8 20 8" />
-                        <path d="M10 13H8" />
-                        <path d="M16 13h-2" />
-                        <path d="M16 17h-6" />
-                    </svg>
-                    <span>Download CV</span>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container mx-auto px-4" style="margin-top:100px">
-
-        <section id="hero" class="h-screen flex items-center text-center hero-background ">
-            <div class="space-y-4">
-                <div
-                    class="w-24 h-24 rounded-full mx-auto flex items-center justify-center text-5xl font-bold text-white logo-gradient shadow-glow">
-                    JD
-                </div>
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800">Hi, I'm <span
-                        class="text-gradient">Kapil Kumar</span></h1>
-                <p class="text-xl sm:text-2xl font-medium text-gray-700">Full Stack Developer</p>
-                <p class="text-lg leading-relaxed max-w-2xl mx-auto text-gray-600">I create beautiful, responsive web
-                    applications with modern technologies. Passionate about clean code, user experience, and bringing
-                    ideas to life.</p>
-                <div class="flex justify-center space-x-4 pt-6">
-                    <a href="#projects"
-                        class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">View
-                        My Work</a>
-                    <a href="#contact"
-                        class="px-6 py-3 border border-gray-400 text-gray-700 font-semibold rounded-lg hover:bg-gray-100 transition-colors">Get
-                        In Touch</a>
-                </div>
-                <!-- Social media icons at the bottom of the hero section -->
-                <div class="flex justify-center space-x-4 pt-8">
-                    <a href="https://github.com/johndoe" target="_blank"
-                        class="w-10 h-10 flex items-center justify-center rounded-full bg-white nav-shadow text-gray-800 hover:text-blue-600 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-github">
-                            <path
-                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                            </path>
-                        </svg>
-                    </a>
-                    <a href="https://linkedin.com/in/johndoe" target="_blank"
-                        class="w-10 h-10 flex items-center justify-center rounded-full bg-white nav-shadow text-gray-800 hover:text-blue-600 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="lucide lucide-linkedin">
-                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                            <rect x="2" y="9" width="4" height="12" />
-                        </svg>
-                    </a>
-
-                </div>
-            </div>
-            <div class="max-w-xl w-full rounded-xl overflow-hidden p-12">
-
-                <!-- Description/Bio -->
-                <div class="text-left mb-12 p-4 bg-gray-50 rounded-lg">
-                    <p class="text-gray-700 text-sm leading-relaxed" style="text-align: justify;">
-                        Experienced Full Stack Developer specializing in building scalable, secure, and high-performance
-                        web applications using Java and Spring Framework
-                        on the backend, and Angular for dynamic front-end development. Proficient in Hibernate for ORM
-                        and database management, with a solid understanding of RESTful API design, microservices, and
-                        modern software architecture. Skilled in integrating front-end and back-end systems to deliver
-                        seamless user experiences.
-                    </p>
-                    <p class="text-gray-700 text-sm leading-relaxed" style="text-align: justify;margin-top: 10px;">
-
-
-                    </p>
-                    <p class="text-gray-700 text-sm leading-relaxed" style="text-align: justify;margin-top: 10px;">
-                        I have strong experience in integrating backend and frontend applications using RESTful APIs. I
-                        ensure smooth data exchange between client and server through efficient API design, JSON-based
-                        communication,
-                        and secure authentication methods like JWT. My focus is on building robust API layers that
-                        connect Angular-based frontends with Spring Boot microservices to achieve efficient, reliable,
-                        and high-performing applications.
-                    </p>
-                    <p class="text-gray-700 text-sm leading-relaxed" style="text-align: justify;margin-top: 10px;">
-                        For more details, connect with me on LinkedIn or write to me at kapilhalewale@gmail.com.
-                    </p>
-                </div>
-
-            </div>
-
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="py-20 md:py-32">
-            <h2 class="text-4xl sm:text-5xl font-bold text-gray-800 text-center">My Core Competencies <span
-                    class="text-gradient">The Tools I Use</span></h2>
-            <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mt-4 mb-12">A comprehensive overview of my
-                technical expertise and capabilities.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-
-                <div class="p-6 bg-white rounded-lg card">
-                    <h3 class="text-2xl font-semibold mb-2 text-gradient">Backend</h3>
-                    <ul class="list-disc list-inside space-y-1 text-gray-600">
-                        <li>Java & Spring framework</li>
-                        <li>Spring Boot</li>
-                        <li>Microservices</li>
-                        <li>Web Services</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-white rounded-lg card">
-                    <h3 class="text-2xl font-semibold mb-2 text-gradient">Frontend</h3>
-                    <ul class="list-disc list-inside space-y-1 text-gray-600">
-                        <li>HTML5, CSS3, JavaScript (ES6+)</li>
-                        <li>Angular</li>
-                        <li>Angular Material, Bootstrap</li>
-                    </ul>
-                </div>
-
-                <!-- Skill Card 3 -->
-                <div class="p-6 bg-white rounded-lg card">
-                    <h3 class="text-2xl font-semibold mb-2 text-gradient">Databases & DevOps</h3>
-                    <ul class="list-disc list-inside space-y-1 text-gray-600">
-                        <li>SQL (Oracle, MySQL)</li>
-                        <li>NoSQL (MongoDB)</li>
-                        <li>Docker, Kubernetes, AWS, GCP</li>
-                    </ul>
-                </div>
-                <div class="p-6 bg-white rounded-lg card">
-                    <h3 class="text-2xl font-semibold mb-2 text-gradient">AI Tools</h3>
-                    <ul class="list-disc list-inside space-y-1 text-gray-600">
-                        <li>Cursor</li>
-                        <li>Github Copilot</li>
-                        <li>Bolt AI, N8N, Notebook LLM</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-20 md:py-32">
-            <h2 class="text-4xl sm:text-5xl font-bold text-gray-800 text-center">Professional Journey <span
-                    class="text-gradient">Building a Career</span></h2>
-            <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mt-4 mb-12">Where I've applied my skills and
-                made an impact.</p>
-            <div class="space-y-8">
-                <!-- Job 1 -->
-                <div class="p-6 bg-white rounded-lg card">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-xl font-semibold text-gradient">Specialist Engineer</h3>
-                        <span class="text-sm text-gray-500">Present</span>
-                    </div>
-                    <p class="text-lg font-medium text-gray-700">LTI Mindtree</p>
-                </div>
-                <div class="p-6 bg-white rounded-lg card">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-xl font-semibold text-gradient">Technical Lead</h3>
-                        <span class="text-sm text-gray-500">Previous</span>
-                    </div>
-                    <p class="text-lg font-medium text-gray-700">HCL Technologies</p>
-                </div>
-                <div class="p-6 bg-white rounded-lg card">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-xl font-semibold text-gradient">Software Developer</h3>
-                        <span class="text-sm text-gray-500">Previous</span>
-                    </div>
-                    <p class="text-lg font-medium text-gray-700">IRIS Software Inc</p>
-                </div>
-                <div class="p-6 bg-white rounded-lg card">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-xl font-semibold text-gradient">Product lead</h3>
-                        <span class="text-sm text-gray-500">First</span>
-                    </div>
-                    <p class="text-lg font-medium text-gray-700">Orileo Technologies</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 md:py-32">
-            <!-- Updated Project Header -->
-            <h2 class="text-4xl sm:text-5xl font-bold text-gray-800 text-center">Projects That Make <span
-                    class="text-gradient">An Impact</span></h2>
-            <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mt-4 mb-12">A showcase of my recent work, from
-                concept to deployment</p>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div
-                    class="bg-white rounded-lg shadow-md overflow-hidden card transition-all duration-300 hover:shadow-lg">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Weather Dashboard</h3>
-                        <p class="text-gray-600 text-sm mb-4">A beautiful weather application with location-based
-                            forecasts, interactive maps, and detailed weather analytics. Responsive design with
-                            dark/light mode.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Vue.js</span>
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">OpenWeather
-                                API</span>
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Chart.js</span>
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">+1</span>
-                        </div>
-                        <a href="#"
-                            class="project-card-link flex items-center justify-between text-blue-600 hover:underline transition-colors">
-                            <span class="font-medium">View Project</span>
-                            <svg class="project-icon w-5 h-5 text-gray-500 transition-colors"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-lg shadow-md overflow-hidden card transition-all duration-300 hover:shadow-lg">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Social Media Dashboard</h3>
-                        <p class="text-gray-600 text-sm mb-4">Analytics dashboard for social media management with
-                            real-time data visualization, automated reporting, and multi-platform integration.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Angular</span>
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">D3.js</span>
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Express</span>
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">+1</span>
-                        </div>
-                        <a href="#"
-                            class="project-card-link flex items-center justify-between text-blue-600 hover:underline transition-colors">
-                            <span class="font-medium">View Project</span>
-                            <svg class="project-icon w-5 h-5 text-gray-500 transition-colors"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div
-                    class="bg-white rounded-lg shadow-md overflow-hidden card transition-all duration-300 hover:shadow-lg">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Portfolio Website</h3>
-                        <p class="text-gray-600 text-sm mb-4">A responsive portfolio website showcasing projects and
-                            skills. Built with modern web technologies and optimized for performance and SEO.</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Angular</span>
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">TypeScript</span>
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">Tailwind
-                                CSS</span>
-                            <span
-                                class="bg-gray-100 text-gray-700 text-xs font-medium px-2.5 py-0.5 rounded-full">+1</span>
-                        </div>
-                        <a href="#"
-                            class="project-card-link flex items-center justify-between text-blue-600 hover:underline transition-colors">
-                            <span class="font-medium">View Project</span>
-                            <svg class="project-icon w-5 h-5 text-gray-500 transition-colors"
-                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                                <polyline points="15 3 21 3 21 9"></polyline>
-                                <line x1="10" y1="14" x2="21" y2="3"></line>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 md:py-32 text-center">
-            <h2 class="text-4xl sm:text-5xl font-bold text-gray-800 text-center">Let's Connect <span
-                    class="text-gradient">Create Something Great</span></h2>
-            <p class="text-lg text-gray-600 text-center max-w-2xl mx-auto mt-4 mb-12">I'm currently open to new
-                opportunities and collaborations. Feel free to reach out!</p>
-
-            <!-- Contact Details -->
-            <div class="space-y-4 mb-8">
-                <h3 class="text-2xl font-bold text-gray-800">Contact Details</h3>
-                <p class="text-lg text-gray-600">Email: <a href="mailto:kapilhalewale@gmail.com"
-                        class="text-blue-600 hover:underline">kapilhalewale@gmail.com</a></p>
-                <p class="text-lg text-gray-600">Location: <a href="https://maps.google.com/?q=San+Francisco,+CA"
-                        target="_blank" class="text-blue-600 hover:underline">Bangalore, India</a></p>
-            </div>
-
-            <!-- Social Media Buttons -->
-            <div class="flex justify-center space-x-4">
-                <a href="mailto:kapilhalewale@gmail.com"
-                    class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">Email
-                    Me</a>
-                <a href="https://www.linkedin.com/in/johndoe/" target="_blank"
-                    class="px-6 py-3 border border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-colors">LinkedIn</a>
-                <a href="https://github.com/johndoe" target="_blank"
-                    class="px-6 py-3 border border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white transition-colors">GitHub</a>
-            </div>
-        </section>
-
+    <div id="app">
+        <!-- Header will be injected here -->
+    </div>
+    
+    <main id="main-content">
+        <!-- Sections will be injected here -->
     </main>
 
-    <!-- Footer -->
-    <footer class="text-center py-8 text-gray-500">
-        <p>&copy; 2025 Kapil Kumar. All rights reserved.</p>
-    </footer>
+    <div id="footer-content">
+        <!-- Footer will be injected here -->
+    </div>
+
 
     <script>
-        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-
-        window.onscroll = function () {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                scrollToTopBtn.style.display = "flex";
-            } else {
-                scrollToTopBtn.style.display = "none";
-            }
+        // --- Data Structure (Easily Replaceable) ---
+        const profileData = {
+            name: "Kapil Halewale",
+            title: "Full-Stack Developer | React & Node.js Specialist",
+            about: "A passionate developer with 5+ years of experience in building scalable web applications. I thrive in dynamic environments and am dedicated to writing clean, efficient, and well-documented code. My focus is primarily on the MERN stack, delivering performance-optimized user experiences.",
+            skills: [
+                { name: "React", level: "Advanced", color: "text-blue-500" },
+                { name: "Node.js", level: "Advanced", color: "text-green-500" },
+                { name: "TypeScript", level: "Intermediate", color: "text-indigo-500" },
+                { name: "Tailwind CSS", level: "Advanced", color: "text-cyan-500" },
+                { name: "MongoDB", level: "Intermediate", color: "text-green-600" },
+                { name: "AWS", level: "Beginner", color: "text-orange-500" },
+            ],
+            experience: [
+                {
+                    role: "Senior Full-Stack Developer",
+                    company: "Innovatech Solutions",
+                    period: "Jan 2023 - Present",
+                    description: "Leading a team of 4 to develop and maintain a high-traffic microservices architecture (Node.js/TypeScript). Implemented a 50% performance improvement in API response times through caching and query optimization.",
+                },
+                {
+                    role: "Software Engineer",
+                    company: "Global Web Services",
+                    period: "Jul 2019 - Dec 2022",
+                    description: "Developed and deployed customer-facing features using React and Redux. Reduced build times by 30% by migrating to Webpack 5.",
+                },
+                {
+                    role: "Junior Developer Intern",
+                    company: "Startup Nexus",
+                    period: "Jan 2019 - Jun 2019",
+                    description: "Assisted in front-end development using vanilla JavaScript and basic PHP/MySQL backend tasks.",
+                },
+            ],
+            projects: [
+                {
+                    title: "E-Commerce Dashboard",
+                    description: "A comprehensive analytics dashboard for monitoring sales, inventory, and user activity, built with React and Redux.",
+                    tags: ["React", "Redux", "API Integration"],
+                    githubUrl: "#",
+                    liveUrl: "#",
+                },
+                {
+                    title: "Real-time Chat App",
+                    description: "A responsive, serverless chat application featuring direct messaging and group chats, using Node.js and WebSockets.",
+                    tags: ["Node.js", "WebSocket", "Tailwind CSS"],
+                    githubUrl: "#",
+                    liveUrl: "#",
+                },
+                {
+                    title: "Portfolio V2",
+                    description: "This website, designed to be blazing fast and fully responsive, focusing on a clean and professional layout.",
+                    tags: ["Vanilla JS", "Tailwind CSS", "Design"],
+                    githubUrl: "#",
+                    liveUrl: "#",
+                },
+            ],
+            contact: {
+                email: "kapil.halewale@example.com",
+                linkedin: "https://linkedin.com/in/kapilhalewale",
+                github: "https://github.com/kapilhalewale",
+            },
         };
 
-        const navLinks = document.querySelectorAll('nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href.startsWith('#')) {
-                    e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 70, // Adjust for fixed header
-                            behavior: 'smooth'
-                        });
-                    }
-                }
+        // --- Icon Definitions (Lucide SVG equivalents) ---
+        const icons = {
+            Moon: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`,
+            Sun: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="M4.93 4.93l1.41 1.41"/><path d="M17.66 17.66l1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="M4.93 19.07l1.41-1.41"/><path d="M17.66 6.34l1.41-1.41"/></svg>`,
+            Briefcase: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/><path d="M2 10h20"/></svg>`,
+            Code: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+            Users: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
+            Mail: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.83 1.83 0 0 1-2.06 0L2 7"/></svg>`,
+            ExternalLink: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`,
+            GitBranch: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="6" y1="3" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>`,
+            Menu: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>`,
+            X: (className) => `<svg class="${className}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>`
+        };
+
+        // --- Theme Management ---
+        let darkMode = false;
+
+        function initializeTheme() {
+            if (localStorage.getItem('darkMode') === 'true' || 
+                (!('darkMode' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                darkMode = true;
+                document.documentElement.classList.add('dark');
+            } else {
+                darkMode = false;
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        function toggleDarkMode() {
+            darkMode = !darkMode;
+            if (darkMode) {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('darkMode', 'true');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('darkMode', 'false');
+            }
+            // Re-render header to update the icon
+            renderHeader();
+        }
+
+        // --- Utility Functions ---
+        const SectionTitle = (title, iconName) => {
+            const Icon = icons[iconName];
+            return `
+                <h2 class="text-3xl font-extrabold mb-8 flex items-center text-gray-900 dark:text-gray-100 border-b pb-2 border-indigo-300 dark:border-indigo-700">
+                    ${Icon("w-7 h-7 mr-3 text-indigo-500")}
+                    ${title}
+                </h2>
+            `;
+        };
+        
+        const IconButton = (iconName, href, label) => {
+            const Icon = icons[iconName];
+            return `
+                <a
+                    href="${href}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="${label}"
+                    class="p-3 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full hover:bg-indigo-500 hover:text-white dark:hover:bg-indigo-600 transition duration-300 transform hover:scale-105"
+                >
+                    ${Icon("w-5 h-5")}
+                </a>
+            `;
+        };
+
+        // --- Sections Rendering ---
+        
+        function renderHeader() {
+            const currentIcon = darkMode ? icons.Sun : icons.Moon;
+            const menuIcon = icons.Menu("w-6 h-6");
+            const xIcon = icons.X("w-6 h-6");
+
+            const headerHtml = `
+                <header id="main-header" class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm shadow-md transition duration-300">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+                        <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+                            ${profileData.name.split(' ')[0]}
+                            <span class="text-gray-900 dark:text-gray-100">.dev</span>
+                        </div>
+                        
+                        <!-- Desktop Navigation -->
+                        <nav class="hidden md:flex space-x-6 text-gray-600 dark:text-gray-300">
+                            <a href="#about" class="text-sm font-medium hover:text-indigo-500 dark:hover:text-indigo-400 transition duration-150 p-2 rounded-lg">About</a>
+                            <a href="#skills" class="text-sm font-medium hover:text-indigo-500 dark:hover:text-indigo-400 transition duration-150 p-2 rounded-lg">Skills</a>
+                            <a href="#experience" class="text-sm font-medium hover:text-indigo-500 dark:hover:text-indigo-400 transition duration-150 p-2 rounded-lg">Experience</a>
+                            <a href="#projects" class="text-sm font-medium hover:text-indigo-500 dark:hover:text-indigo-400 transition duration-150 p-2 rounded-lg">Projects</a>
+                            <a href="#contact" class="text-sm font-medium hover:text-indigo-500 dark:hover:text-indigo-400 transition duration-150 p-2 rounded-lg">Contact</a>
+                        </nav>
+
+                        <div class="flex items-center space-x-4">
+                            <!-- Dark Mode Toggle Button -->
+                            <button id="dark-mode-toggle" aria-label="Toggle dark mode" class="p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300">
+                                ${currentIcon("w-5 h-5")}
+                            </button>
+
+                            <!-- Mobile Menu Button -->
+                            <button id="mobile-menu-button" aria-label="Open menu" class="md:hidden p-2 rounded-full text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition duration-300">
+                                ${menuIcon}
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Mobile Menu Drawer -->
+                    <nav id="mobile-menu" class="md:hidden bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
+                        <div class="flex flex-col space-y-2 p-4 text-gray-700 dark:text-gray-300">
+                            <a href="#about" class="block py-2 text-base font-medium hover:text-indigo-500 dark:hover:text-indigo-400 rounded-lg">About</a>
+                            <a href="#skills" class="block py-2 text-base font-medium hover:text-indigo-500 dark:hover:text-indigo-400 rounded-lg">Skills</a>
+                            <a href="#experience" class="block py-2 text-base font-medium hover:text-indigo-500 dark:hover:text-indigo-400 rounded-lg">Experience</a>
+                            <a href="#projects" class="block py-2 text-base font-medium hover:text-indigo-500 dark:hover:text-indigo-400 rounded-lg">Projects</a>
+                            <a href="#contact" class="block py-2 text-base font-medium hover:text-indigo-500 dark:hover:text-indigo-400 rounded-lg">Contact</a>
+                        </div>
+                    </nav>
+                </header>
+            `;
+            document.getElementById('app').innerHTML = headerHtml;
+
+            // Attach event listeners after injection
+            document.getElementById('dark-mode-toggle').onclick = toggleDarkMode;
+            
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.onclick = () => {
+                const isMenuOpen = mobileMenu.classList.toggle('open');
+                mobileMenuButton.innerHTML = isMenuOpen ? xIcon : menuIcon;
+            };
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.onclick = () => {
+                    mobileMenu.classList.remove('open');
+                    mobileMenuButton.innerHTML = menuIcon;
+                };
             });
+        }
+
+        function renderHeroSection() {
+            const html = `
+                <section id="about" class="py-20 sm:py-32 bg-gray-50 dark:bg-gray-800 transition duration-300">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between">
+                        <div class="md:w-3/5">
+                            <p class="text-lg text-indigo-600 dark:text-indigo-400 font-semibold mb-2">Hello, I'm</p>
+                            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight text-gray-900 dark:text-white leading-tight">
+                                ${profileData.name}
+                            </h1>
+                            <p class="mt-4 text-2xl text-gray-700 dark:text-gray-300 font-medium">
+                                ${profileData.title}
+                            </p>
+                            <p class="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-lg">
+                                ${profileData.about}
+                            </p>
+                            <div class="mt-8 flex space-x-4">
+                                <a
+                                    href="#projects"
+                                    class="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-lg hover:bg-indigo-700 transform hover:scale-105 transition duration-300"
+                                >
+                                    View Projects
+                                </a>
+                                <a
+                                    href="#contact"
+                                    class="px-6 py-3 border border-indigo-600 text-indigo-600 dark:text-indigo-400 font-semibold rounded-lg hover:bg-indigo-50 dark:hover:bg-gray-700 transition duration-300"
+                                >
+                                    Get In Touch
+                                </a>
+                            </div>
+                        </div>
+                        <div class="mt-12 md:mt-0 md:w-2/5 flex justify-center">
+                            <!-- Profile Image Placeholder -->
+                            <div class="w-64 h-64 md:w-80 md:h-80 bg-gray-300 dark:bg-gray-700 rounded-full shadow-2xl overflow-hidden relative">
+                                <img
+                                    src="https://placehold.co/800x800/212130/ffffff?text=KAPIL"
+                                    alt="${profileData.name}'s professional portrait"
+                                    class="object-cover w-full h-full"
+                                />
+                                <div class="absolute inset-0 ring-4 ring-indigo-500/50 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            `;
+            document.getElementById('main-content').insertAdjacentHTML('beforeend', html);
+        }
+
+        function renderSkillsSection() {
+            const skillsList = profileData.skills.map(skill => {
+                const Icon = icons.Code; // Using generic Code icon for all skills
+                return `
+                    <div
+                        class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 hover:shadow-2xl transform hover:-translate-y-1 transition duration-300"
+                    >
+                        <div class="flex items-center space-x-4">
+                            ${Icon(`w-8 h-8 ${skill.color}`)}
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-white">
+                                    ${skill.name}
+                                </h3>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    ${skill.level}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const html = `
+                <section id="skills" class="py-16 sm:py-24 transition duration-300">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                        ${SectionTitle("Core Skills & Expertise", "Users")}
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                            ${skillsList}
+                        </div>
+                    </div>
+                </section>
+            `;
+            document.getElementById('main-content').insertAdjacentHTML('beforeend', html);
+        }
+
+        function renderExperienceSection() {
+            const timelineItems = profileData.experience.map((job, index) => {
+                return `
+                    <div class="flex mb-12 relative">
+                        <!-- Timeline Dot and Line -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-5 h-5 rounded-full bg-indigo-600 flex items-center justify-center text-white z-10">
+                                ${icons.Briefcase("w-3 h-3")}
+                            </div>
+                            <!-- Line segment (hide if last item) -->
+                            <div class="flex-grow w-0.5 bg-gray-300 dark:bg-gray-700 ${index === profileData.experience.length - 1 ? 'hidden' : ''}"></div>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="ml-6 flex-1">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 transform hover:scale-[1.01] transition duration-300">
+                                <h3 class="text-xl font-bold text-indigo-600 dark:text-indigo-400 mb-1">${job.role}</h3>
+                                <p class="text-sm font-medium text-gray-800 dark:text-gray-200 mb-2">${job.company}</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">${job.period}</p>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">${job.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Add a start indicator for the end of the line
+            const startIndicator = `
+                <div class="flex relative">
+                    <div class="flex flex-col items-center">
+                        <div class="w-5 h-5 rounded-full bg-gray-400 dark:bg-gray-600 flex items-center justify-center text-white z-10">
+                            ${icons.Briefcase("w-3 h-3")}
+                        </div>
+                    </div>
+                    <div class="ml-6 flex-1 pt-1">
+                        <p class="text-sm text-gray-500 dark:text-gray-400 font-semibold">Started Career Journey</p>
+                    </div>
+                </div>
+            `;
+
+            const html = `
+                <section id="experience" class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-800 transition duration-300">
+                    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                        ${SectionTitle("Career Journey & Experience", "Briefcase")}
+                        <div class="relative pt-6">
+                            ${timelineItems}
+                            ${startIndicator}
+                        </div>
+                    </div>
+                </section>
+            `;
+            document.getElementById('main-content').insertAdjacentHTML('beforeend', html);
+        }
+
+        function renderProjectsSection() {
+            const projectsList = profileData.projects.map(project => {
+                const tagsHtml = project.tags.map(tag => `
+                    <span class="text-xs font-medium px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full dark:bg-indigo-900 dark:text-indigo-200">
+                        ${tag}
+                    </span>
+                `).join('');
+
+                return `
+                    <div
+                        class="bg-white dark:bg-gray-900 rounded-xl shadow-xl overflow-hidden flex flex-col h-full border border-gray-100 dark:border-gray-700"
+                    >
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                                ${project.title}
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400 flex-grow mb-4">
+                                ${project.description}
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                ${tagsHtml}
+                            </div>
+                            <div class="mt-auto flex space-x-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+                                <a
+                                    href="${project.githubUrl}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-200 font-medium transition duration-150"
+                                >
+                                    ${icons.GitBranch("w-4 h-4 mr-1")}
+                                    GitHub
+                                </a>
+                                <a
+                                    href="${project.liveUrl}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 font-medium transition duration-150"
+                                >
+                                    ${icons.ExternalLink("w-4 h-4 mr-1")}
+                                    Live Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            const html = `
+                <section id="projects" class="py-16 sm:py-24 transition duration-300">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                        ${SectionTitle("Featured Projects", "Code")}
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            ${projectsList}
+                        </div>
+                    </div>
+                </section>
+            `;
+            document.getElementById('main-content').insertAdjacentHTML('beforeend', html);
+        }
+
+        function renderContactSection() {
+            const html = `
+                <section id="contact" class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-800 transition duration-300">
+                    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                        ${SectionTitle("Get In Touch", "Mail")}
+                        <p class="text-xl text-gray-700 dark:text-gray-300 mb-6">
+                            I am currently open to new opportunities. Whether you have a question or just want to say hi, feel free to reach out!
+                        </p>
+
+                        <a
+                            href="mailto:${profileData.contact.email}"
+                            class="inline-block px-8 py-3 bg-indigo-600 text-white text-lg font-semibold rounded-lg shadow-xl hover:bg-indigo-700 transform hover:scale-105 transition duration-300"
+                        >
+                            <div class="flex items-center justify-center">
+                                ${icons.Mail("w-5 h-5 mr-2")}
+                                ${profileData.contact.email}
+                            </div>
+                        </a>
+
+                        <div class="mt-10 flex justify-center space-x-4">
+                            ${IconButton("GitBranch", profileData.contact.github, "GitHub Profile")}
+                            ${IconButton("Users", profileData.contact.linkedin, "LinkedIn Profile")}
+                        </div>
+                    </div>
+                </section>
+            `;
+            document.getElementById('main-content').insertAdjacentHTML('beforeend', html);
+        }
+
+        function renderFooter() {
+            const currentYear = new Date().getFullYear();
+            const html = `
+                <footer class="py-8 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 transition duration-300">
+                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500 dark:text-gray-400">
+                        <p>&copy; ${currentYear} ${profileData.name}. All rights reserved.</p>
+                        <p class="mt-1">Built with Vanilla JavaScript and Tailwind CSS for a modern, responsive experience.</p>
+                    </div>
+                </footer>
+            `;
+            document.getElementById('footer-content').innerHTML = html;
+        }
+
+        // --- Initialization ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeTheme();
+            renderHeader();
+            renderHeroSection();
+            renderSkillsSection();
+            renderExperienceSection(); // New section added here
+            renderProjectsSection();
+            renderContactSection();
+            renderFooter();
         });
     </script>
 </body>
-
 </html>
